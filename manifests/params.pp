@@ -40,17 +40,39 @@ class haveged::params {
       $package_name = 'haveged'
       $service_name = 'haveged'
 
-      case getvar('::haveged_startup_provider') {
-        'init': {
+      if $::operatingsystem in ['CentOS', 'RedHat'] {
+        if $::operatingsystemmajrelease < '7' {
           $daemon_opts_file = undef
           $systemd_opts_dir = undef
         }
-        'systemd': {
+        else {
           $daemon_opts_file = undef
           $systemd_opts_dir = "/etc/systemd/system/${service_name}.service.d"
         }
-        default: {
-          fail("Unrecognized startup system '${::haveged_startup_provider}'")
+      }
+      elsif $::operatingsystem == 'Fedora' {
+        if $::operatingsystemmajrelease < '21' {
+          $daemon_opts_file = undef
+          $systemd_opts_dir = undef
+        }
+        else {
+          $daemon_opts_file = undef
+          $systemd_opts_dir = "/etc/systemd/system/${service_name}.service.d"
+        }
+      }
+      else {
+        case getvar('::haveged_startup_provider') {
+          'init': {
+            $daemon_opts_file = undef
+            $systemd_opts_dir = undef
+          }
+          'systemd': {
+            $daemon_opts_file = undef
+            $systemd_opts_dir = "/etc/systemd/system/${service_name}.service.d"
+          }
+          default: {
+            fail("Unrecognized startup system '${::haveged_startup_provider}'")
+          }
         }
       }
     }

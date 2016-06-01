@@ -1,8 +1,6 @@
 # haveged
 
-[![Build Status](https://travis-ci.org/smoeding/puppet-haveged.svg?branch=master)](https://travis-ci.org/smoeding/puppet-haveged)
-[![Puppet Forge](http://img.shields.io/puppetforge/v/stm/haveged.svg)](https://forge.puppetlabs.com/stm/haveged)
-[![License](https://img.shields.io/github/license/smoeding/puppet-haveged.svg)](https://raw.githubusercontent.com/smoeding/puppet-haveged/master/LICENSE)
+[![License](https://img.shields.io/badge/license-BSD--2--Clause-blue.svg)](https://opensource.org/licenses/BSD-2-Clause) [![Build Status](https://travis-ci.org/simp/puppet-haveged?branch=simp-master)](https://travis-ci.org/simp/puppet-haveged) ![SIMP compatibility](https://img.shields.io/badge/license-BSD--2--Clause-blue.svg)
 
 #### Table of Contents
 
