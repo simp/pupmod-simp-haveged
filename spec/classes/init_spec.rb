@@ -31,11 +31,6 @@ describe 'haveged' do
         should contain_class('haveged')
 
         should contain_class('haveged::package')
-
-        should_not contain_class('haveged::config')
-
-        should contain_class('haveged::service') \
-                .that_comes_before('Class[haveged::package]')
       }
     end
 
