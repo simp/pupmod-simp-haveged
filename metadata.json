@@ -1,13 +1,13 @@
 {
-  "name": "stm-haveged",
-  "version": "0.2.0",
-  "author": "stm",
+  "name": "simp-haveged",
+  "version": "0.3.0",
+  "author": "simp",
   "summary": "Install and manage the HAVEGE daemon.",
   "license": "BSD-2-Clause",
-  "source": "https://github.com/smoeding/puppet-haveged",
-  "project_page": "https://github.com/smoeding/puppet-haveged",
-  "issues_url": "https://github.com/smoeding/puppet-haveged/issues",
-  "tags": [ "entropy", "random" ],
+  "source": "https://github.com/simp/puppet-haveged",
+  "project_page": "https://github.com/simp/puppet-haveged",
+  "issues_url": "https://simp-project.atlassian.net",
+  "tags": [ "simp", "entropy", "random" ],
   "operatingsystem_support": [
     {
       "operatingsystem": "Debian",
@@ -44,11 +44,11 @@
   "requirements": [
     {
       "name": "pe",
-      "version_requirement": "3.2.x"
+      "version_requirement": ">= 3.2.0 < 2017.0"
     },
     {
       "name": "puppet",
-      "version_requirement": "3.x"
+      "version_requirement": ">= 3.0.0 < 5.0.0"
     }
   ]
 }
