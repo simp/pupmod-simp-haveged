@@ -1,0 +1,2 @@
+Requires: puppetlabs-stdlib >= 4.9.0-0.SIMP
+Requires: pupmod-simplib >= 1.2.5
