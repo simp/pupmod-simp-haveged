@@ -1,3 +1,14 @@
+## 2016-07-07 - Release 0.3.1
+### Summary
+Updated module for auto lua spec generation
+
+#### Authors
+- Nick Markowski <nmarkowski@keywcorp.com>
+
+#### Features
+- Added missing requires file and added dependency on simplib
+- Modified module to auto-generate lua spec
+
 ## 2016-06-01 - Release 0.3.0
 ### Summary
 Massive Refactor
