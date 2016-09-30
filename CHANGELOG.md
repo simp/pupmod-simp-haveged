@@ -1,3 +1,13 @@
+## 2016-09-29 - Release 0.3.2
+### Summary
+Fixed malformed `pe` dependency in `metadata.json`
+
+#### Authors
+- Chris Tessmer <chris.tessmer@onyxpoint.com>
+
+#### Features
+- Fixed syntax to enable publishing to the Forge
+
 ## 2016-07-07 - Release 0.3.1
 ### Summary
 Updated module for auto lua spec generation
