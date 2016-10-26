@@ -23,8 +23,14 @@
 #
 #
 class haveged::package (
-  $package_name   = defined('$::haveged::package_name') ? { true => getvar('::haveged::package_name'), default => $::haveged::params::package_name },
-  $package_ensure = defined('$::haveged::_package_ensure') ? { true => getvar('::haveged::_package_ensure'), false => 'present' },
+  $package_name   = defined('$::haveged::package_name') ? {
+    true => getvar('::haveged::package_name'),
+    default => $::haveged::params::package_name
+  },
+  $package_ensure = defined('$::haveged::_package_ensure') ? {
+    true => getvar('::haveged::_package_ensure'),
+    false => 'present'
+  },
 ) inherits ::haveged::params {
 
   # Working around a bug in the package type

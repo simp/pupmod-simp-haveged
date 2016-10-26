@@ -27,10 +27,22 @@
 #
 #
 class haveged::config (
-  $buffer_size            =  defined('$::haveged::buffer_size') ? { true => getvar('::haveged::buffer_size'), default => undef },
-  $data_cache_size        =  defined('$::haveged::data_cache_size') ? { true => getvar('::haveged::data_cache_size'), default => undef },
-  $instruction_cache_size =  defined('$::haveged::instruction_cache_size') ? { true => getvar('::haveged::instruction_cache_size'), default => undef },
-  $write_wakeup_threshold =  defined('$::haveged::write_wakeup_threshold') ? { true => getvar('::haveged::write_wakeup_threshold'), default => undef }
+  $buffer_size            =  defined('$::haveged::buffer_size') ? {
+    true => getvar('::haveged::buffer_size'),
+    default => undef
+  },
+  $data_cache_size        =  defined('$::haveged::data_cache_size') ? {
+    true => getvar('::haveged::data_cache_size'),
+    default => undef
+  },
+  $instruction_cache_size =  defined('$::haveged::instruction_cache_size') ? {
+    true => getvar('::haveged::instruction_cache_size'),
+    default => undef
+  },
+  $write_wakeup_threshold =  defined('$::haveged::write_wakeup_threshold') ? {
+    true => getvar('::haveged::write_wakeup_threshold'),
+    default => undef
+  }
 ) inherits ::haveged::params {
 
   # Validate numeric parameters
