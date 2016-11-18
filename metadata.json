@@ -1,7 +1,7 @@
 {
   "name": "simp-haveged",
   "version": "0.3.2",
-  "author": "simp",
+  "author": "SIMP Team",
   "summary": "Install and manage the HAVEGE daemon.",
   "license": "BSD-2-Clause",
   "source": "https://github.com/simp/puppet-haveged",
