@@ -1,5 +1,0 @@
---- 
-  fixtures: 
-    symlinks: 
-      haveged: "#{source_dir}"
-      stdlib: "#{source_dir}/../stdlib"
