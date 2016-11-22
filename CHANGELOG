@@ -1,16 +1,16 @@
 * Mon Nov 21 2016 Chris Tessmer <chris.tessmer@onyxpoint.com> - 0.3.3-0
 - Updated to compliance_markup version 2
 
-* Thu 29 Sep 2016 Chris Tessmer <chris.tessmer@onyxpoint.com> - 0.3.2-0
+* Thu Sep 29 2016 Chris Tessmer <chris.tessmer@onyxpoint.com> - 0.3.2-0
 - Fixed malformed pe dependency in metadata.json
 - Fixed syntax to enable publishing to the Forge
 
-* Thu 07 Jul 2016 Nick Markowski <nmarkowski@keywcorp.com> - 0.3.1-0
+* Thu Jul 07 2016 Nick Markowski <nmarkowski@keywcorp.com> - 0.3.1-0
 - Updated module for auto lua spec generation
 - Added missing requires file and added dependency on simplib
 - Modified module to auto-generate lua spec
 
-* Thu 01 Jun 2016 Trevor Vaughan <tvaughan@onyxpoint.com>
+* Thu Jun 01 2016 Trevor Vaughan <tvaughan@onyxpoint.com>
 - Massive Refactor
 - Refactored the module to use the latest best practices and eliminate issues
   with doing an 'include' of the individual sub-classes.
