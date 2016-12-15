@@ -34,18 +34,18 @@ class haveged::config (
 ) inherits ::haveged::params {
 
   # Validate numeric parameters
-  if $buffer_size {
-    validate_re($buffer_size, '^[0-9]+$')
-  }
-  if $data_cache_size {
-    validate_re($data_cache_size, '^[0-9]+$')
-  }
-  if $instruction_cache_size {
-    validate_re($instruction_cache_size, '^[0-9]+$')
-  }
-  if $write_wakeup_threshold {
-    validate_re($write_wakeup_threshold, '^[0-9]+$')
-  }
+  #if $buffer_size {
+  #  validate_re($buffer_size, '^[0-9]+$')
+  #}
+  #if $data_cache_size {
+  #  validate_re($data_cache_size, '^[0-9]+$')
+  #}
+  #if $instruction_cache_size {
+  #  validate_re($instruction_cache_size, '^[0-9]+$')
+  #}
+  #if $write_wakeup_threshold {
+  #  validate_re($write_wakeup_threshold, '^[0-9]+$')
+  #}
 
   $opts_hash = {
     '-b' => $buffer_size,

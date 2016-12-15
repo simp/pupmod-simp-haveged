@@ -14,15 +14,15 @@ describe 'haveged::config' do
         let(:facts) { facts.merge({ :haveged_startup_provider => 'init' }) }
 
         it {
-          should contain_file('/etc/default/haveged') \
+          is_expected.to contain_file('/etc/default/haveged') \
                   .with_ensure('file') \
                   .with_owner('root') \
                   .with_group('root') \
                   .with_mode('0644') \
                   .with_content(/^DAEMON_ARGS=""/)
 
-          should_not contain_file('/etc/systemd/system/haveged.service.d')
-          should_not contain_file('/etc/systemd/system/haveged.service.d/opts.conf')
+          is_expected.to_not contain_file('/etc/systemd/system/haveged.service.d')
+          is_expected.to_not contain_file('/etc/systemd/system/haveged.service.d/opts.conf')
         }
 
       when 'Debian-8'
@@ -53,20 +53,20 @@ describe 'haveged::config' do
         }
 
         it {
-          should contain_file('/etc/systemd/system/haveged.service.d') \
+          is_expected.to contain_file('/etc/systemd/system/haveged.service.d') \
                   .with_ensure('directory') \
                   .with_owner('root') \
                   .with_group('root') \
                   .with_mode('0644')
 
-          should contain_file('/etc/systemd/system/haveged.service.d/opts.conf') \
+          is_expected.to contain_file('/etc/systemd/system/haveged.service.d/opts.conf') \
                   .with_ensure('file') \
                   .with_owner('root') \
                   .with_group('root') \
                   .with_mode('0644') \
                   .with_content(/^ExecStart=.*haveged --Foreground --verbose=1/)
 
-          should_not contain_file('/etc/default/haveged')
+          is_expected.to_not contain_file('/etc/default/haveged')
         }
 
       else
@@ -86,7 +86,7 @@ describe 'haveged::config' do
     end
 
     it {
-      should contain_file('/etc/default/haveged') \
+      is_expected.to contain_file('/etc/default/haveged') \
               .with_content(/^DAEMON_ARGS="-b 1103"/)
     }
   end
@@ -101,7 +101,7 @@ describe 'haveged::config' do
     end
 
     it {
-      should contain_file('/etc/systemd/system/haveged.service.d/opts.conf') \
+      is_expected.to contain_file('/etc/systemd/system/haveged.service.d/opts.conf') \
               .with_content(/^ExecStart=.*haveged --Foreground --verbose=1 -b 1103/)
     }
   end
@@ -116,7 +116,7 @@ describe 'haveged::config' do
     end
 
     it {
-      should contain_file('/etc/default/haveged') \
+      is_expected.to contain_file('/etc/default/haveged') \
               .with_content(/^DAEMON_ARGS="-d 1103"/)
     }
   end
@@ -131,7 +131,7 @@ describe 'haveged::config' do
     end
 
     it {
-      should contain_file('/etc/systemd/system/haveged.service.d/opts.conf') \
+      is_expected.to contain_file('/etc/systemd/system/haveged.service.d/opts.conf') \
               .with_content(/^ExecStart=.*haveged --Foreground --verbose=1 -d 1103/)
     }
   end
@@ -146,7 +146,7 @@ describe 'haveged::config' do
     end
 
     it {
-      should contain_file('/etc/default/haveged') \
+      is_expected.to contain_file('/etc/default/haveged') \
               .with_content(/^DAEMON_ARGS="-i 1103"/)
     }
   end
@@ -161,7 +161,7 @@ describe 'haveged::config' do
     end
 
     it {
-      should contain_file('/etc/systemd/system/haveged.service.d/opts.conf') \
+      is_expected.to contain_file('/etc/systemd/system/haveged.service.d/opts.conf') \
               .with_content(/^ExecStart=.*haveged --Foreground --verbose=1 -i 1103/)
     }
   end
@@ -176,7 +176,7 @@ describe 'haveged::config' do
     end
 
     it {
-      should contain_file('/etc/default/haveged') \
+      is_expected.to contain_file('/etc/default/haveged') \
               .with_content(/^DAEMON_ARGS="-w 1103"$/)
     }
   end
@@ -191,7 +191,7 @@ describe 'haveged::config' do
     end
 
     it {
-      should contain_file('/etc/systemd/system/haveged.service.d/opts.conf') \
+      is_expected.to contain_file('/etc/systemd/system/haveged.service.d/opts.conf') \
               .with_content(/^ExecStart=.*haveged --Foreground --verbose=1 -w 1103$/)
     }
   end

@@ -55,45 +55,47 @@ class haveged (
   $package_ensure         = 'present',
 ) inherits ::haveged::params {
 
-  #
-  # Canonicalize parameter package_ensure
-  #
-  $_package_ensure = $package_ensure ? {
-    true     => 'present',
-    false    => 'purged',
-    'absent' => 'purged',
-    default  => $package_ensure,
-  }
-
-  #
-  # Canonicalize parameter service_ensure
-  #
-  if ($_package_ensure == 'purged') {
-    $_service_ensure = 'stopped'
-    $_service_enable = false
-  }
-  else {
-    $_service_ensure = $service_ensure ? {
-      true    => 'running',
-      false   => 'stopped',
-      default => $service_ensure,
+  if simplib::lookup('simp_options::haveged', { 'default_value' => true }) {
+    #
+    # Canonicalize parameter package_ensure
+    #
+    $_package_ensure = $package_ensure ? {
+      true     => 'present',
+      false    => 'purged',
+      'absent' => 'purged',
+      default  => $package_ensure,
     }
 
-    $_service_enable = $service_enable
-  }
+    #
+    # Canonicalize parameter service_ensure
+    #
+    if ($_package_ensure == 'purged') {
+      $_service_ensure = 'stopped'
+      $_service_enable = false
+    }
+    else {
+      $_service_ensure = $service_ensure ? {
+        true    => 'running',
+        false   => 'stopped',
+        default => $service_ensure,
+      }
 
-  contain '::haveged::package'
-  contain '::haveged::service'
+      $_service_enable = $service_enable
+    }
 
-  if ($_package_ensure == 'purged') {
-    # Allow stopping before removal
-    Class['haveged::service'] -> Class['haveged::package']
-  }
-  else {
-    contain '::haveged::config'
+    contain '::haveged::package'
+    contain '::haveged::service'
 
-    Class['haveged::package'] ~> Class['haveged::service']
-    Class['haveged::package'] -> Class['haveged::config']
-    Class['haveged::config'] ~> Class['haveged::service']
+    if ($_package_ensure == 'purged') {
+      # Allow stopping before removal
+      Class['haveged::service'] -> Class['haveged::package']
+    }
+    else {
+      contain '::haveged::config'
+
+      Class['haveged::package'] ~> Class['haveged::service']
+      Class['haveged::package'] -> Class['haveged::config']
+      Class['haveged::config'] ~> Class['haveged::service']
+    }
   }
 }

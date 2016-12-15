@@ -44,7 +44,7 @@ describe 'haveged' do
 
       it 'should not be installed' do
         on(host, 'puppet resource package haveged') do
-          expect(stdout).to match(/ensure => 'absent'/)
+          expect(stdout).to match(/ensure => 'purged'/)
         end
       end
 
