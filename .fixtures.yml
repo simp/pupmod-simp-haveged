@@ -3,6 +3,9 @@ fixtures:
   repositories:
     stdlib:
       repo: https://github.com/simp/puppetlabs-stdlib
-      branch: simp-master
+      branch: master
+    simplib:
+      repo: https://github.com/simp/pupmod-simp-simplib
+      branch: master
   symlinks:
     haveged: "#{source_dir}"
