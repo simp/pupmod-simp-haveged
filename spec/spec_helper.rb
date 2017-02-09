@@ -82,7 +82,6 @@ RSpec.configure do |c|
   # If nothing else...
   c.default_facts = {
     :production => {
-      #:fqdn           => 'production.rspec.test.localdomain',
       :path           => '/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin',
       :concat_basedir => '/tmp'
     }
