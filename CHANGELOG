@@ -1,3 +1,6 @@
+* Thu Jul 20 2017 Liz Nemsick <lnemsick.simp@gmail.com> - 0.4.2-0
+- Fix bad tag.  simp-0.4.1 tag was made off of master branch.
+
 * Thu Jul 06 2017 Liz Nemsick <lnemsick.simp@gmail.com> - 0.4.1-0
 - Update puppet dependency in metadata.json
 - Remove OBE pe dependency in metadata.json
