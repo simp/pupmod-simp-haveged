@@ -1,3 +1,6 @@
+* Thu Aug 17 2017 Trevor Vaughan <tvaughan@onyxpoint.com> - 0.4.4-0
+- Update the README with the new badges and improve formatting
+
 * Thu Jul 20 2017 Liz Nemsick <lnemsick.simp@gmail.com> - 0.4.3-0
 - Fix bad 0.4.2 tag.  In that tag, the metadata.json was incorrect.
 

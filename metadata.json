@@ -1,6 +1,6 @@
 {
   "name": "simp-haveged",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "author": "SIMP Team",
   "summary": "Install and manage the HAVEGE daemon.",
   "license": "BSD-2-Clause",
