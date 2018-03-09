@@ -205,3 +205,24 @@ fips-acceptance:
     BEAKER_fips: 'yes'
   script:
     - bundle exec rake beaker:suites[default]
+  allow_failure: true
+
+puppet5-acceptance:
+  stage: acceptance
+  tags:
+    - beaker
+  <<: *cache_bundler
+  <<: *setup_bundler_env
+  script:
+    - bundle exec rake beaker:suites[default,puppet5]
+  allow_failure: true
+
+oel-acceptance:
+  stage: acceptance
+  tags:
+    - beaker
+  <<: *cache_bundler
+  <<: *setup_bundler_env
+  script:
+    - bundle exec rake beaker:suites[default,oel]
+  allow_failure: true
