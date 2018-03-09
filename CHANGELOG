@@ -1,3 +1,7 @@
+* Thu Mar 08 2018 Trevor Vaughan <tvaughan@onyxpoint.com> - 0.4.5-0
+- Add support for OracleLinux 6 and 7
+- Test against Puppet 5
+
 * Thu Aug 17 2017 Trevor Vaughan <tvaughan@onyxpoint.com> - 0.4.4-0
 - Update the README with the new badges and improve formatting
 

@@ -55,6 +55,8 @@ class haveged (
   $package_ensure         = 'present',
 ) inherits ::haveged::params {
 
+  simplib::assert_metadata($module_name)
+
   if simplib::lookup('simp_options::haveged', { 'default_value' => true }) {
     #
     # Canonicalize parameter package_ensure

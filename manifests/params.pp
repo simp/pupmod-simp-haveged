@@ -40,7 +40,7 @@ class haveged::params {
       $package_name = 'haveged'
       $service_name = 'haveged'
 
-      if $::operatingsystem in ['CentOS', 'RedHat'] {
+      if $::operatingsystem in ['CentOS', 'RedHat','OracleLinux'] {
         if $::operatingsystemmajrelease < '7' {
           $daemon_opts_file = undef
           $systemd_opts_dir = undef
