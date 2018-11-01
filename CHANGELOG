@@ -1,3 +1,6 @@
+* Thu Nov 01 2018 Jeanne Greulich <jeanne.greulich@onyxpoint.com> - 0.4.5-0
+- static asset updates for puppet 5
+
 * Thu Mar 08 2018 Trevor Vaughan <tvaughan@onyxpoint.com> - 0.4.5-0
 - Add support for OracleLinux 6 and 7
 - Test against Puppet 5
