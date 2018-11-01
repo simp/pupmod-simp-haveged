@@ -47,6 +47,7 @@ variables:
     paths:
       - '.vendor'
   before_script:
+    - 'ruby -e "puts %(Environment Variables:\n  * #{ENV.keys.grep(/PUPPET|SIMP|BEAKER|MATRIX/).map{|v| %(#{v} = #{ENV[v]})}.join(%(\n  * ))})"'
     - 'declare GEM_BUNDLER_VER=(-v "~> ${BUNDLER_VERSION:-1.16.0}")'
     - 'declare GEM_INSTALL_CMD=(gem install --no-document)'
     - 'declare BUNDLER_INSTALL_CMD=(bundle install --no-binstubs --jobs $(nproc) "${FLAGS[@]}")'
@@ -203,12 +204,12 @@ pup-current-oel-fips-default:
   <<: *only_with_SIMP_FULL_MATRIX
   script:
     - 'BEAKER_fips=yes bundle exec rake beaker:suites[default,oel]'
-
-pup-current-fips-compliance:
-  <<: *pup_current
-  <<: *compliance_base
-  script:
-    - 'BEAKER_fips=yes bundle exec rake beaker:suites[compliance]'
+# No compliance suite yet
+#pup-current-fips-compliance:
+#  <<: *pup_current
+#  <<: *compliance_base
+#  script:
+#    - 'BEAKER_fips=yes bundle exec rake beaker:suites[compliance]'
 
 # FUTURE
 ## Deployment jobs
