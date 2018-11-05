@@ -59,6 +59,7 @@ jobs:
         - bundle exec rake pkg:create_tag_changelog
         - bundle exec rake lint
         - bundle exec puppet module build
+
     - stage: spec
       name: 'Puppet 4.10 (SIMP 6.2, PE 2016.4)'
       rvm: 2.1.9
@@ -100,7 +101,7 @@ jobs:
         - true
       before_deploy:
         - "export PUPMOD_METADATA_VERSION=`ruby -r json -e \"puts JSON.parse(File.read('metadata.json')).fetch('version')\"`"
-- '[[ $TRAVIS_TAG =~ ^simp-${PUPMOD_METADATA_VERSION}$|^${PUPMOD_METADATA_VERSION}$ ]]'
+        - '[[ $TRAVIS_TAG =~ ^simp-${PUPMOD_METADATA_VERSION}$|^${PUPMOD_METADATA_VERSION}$ ]]'
       deploy:
         - provider: releases
           api_key:
