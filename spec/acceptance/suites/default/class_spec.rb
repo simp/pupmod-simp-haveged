@@ -18,14 +18,14 @@ describe 'haveged' do
 
       it 'should be installed' do
         on(host, 'puppet resource package haveged') do
-          expect(stdout).to_not match(/ensure => 'absent'/)
+          expect(stdout).to_not match(/ensure\s*=> 'absent'/)
         end
       end
 
       it 'should be running' do
         on(host, 'puppet resource service haveged') do
-          expect(stdout).to match(/ensure => 'running'/)
-          expect(stdout).to match(/enable => 'true'/)
+          expect(stdout).to match(/ensure\s*=> 'running'/)
+          expect(stdout).to match(/enable\s*=> 'true'/)
         end
       end
 
@@ -44,14 +44,14 @@ describe 'haveged' do
 
       it 'should not be installed' do
         on(host, 'puppet resource package haveged') do
-          expect(stdout).to match(/ensure => 'purged'/)
+          expect(stdout).to match(/ensure\s*=> 'purged'/)
         end
       end
 
       it 'should not be running' do
         on(host, 'puppet resource service haveged') do
-          expect(stdout).to match(/ensure => 'stopped'/)
-          expect(stdout).to match(/enable => 'false'/)
+          expect(stdout).to match(/ensure\s*=> 'stopped'/)
+          expect(stdout).to match(/enable\s*=> 'false'/)
         end
       end
 
