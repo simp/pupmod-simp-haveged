@@ -7,10 +7,9 @@
 -%>
 
 HOSTS:
-  el7-system:
+  el7:
     roles:
       - default
-      - master
     platform:   el-7-x86_64
     box:        centos/7
     hypervisor: <%= hypervisor %>
@@ -20,15 +19,23 @@ HOSTS:
         gpgkeys:
           - https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-$releasever
 
-  el6-system:
-    roles:
-      - client
+  el6:
     platform:   el-6-x86_64
     box:        centos/6
     hypervisor: <%= hypervisor %>
     yum_repos:
       epel:
         mirrorlist: 'https://mirrors.fedoraproject.org/metalink?repo=epel-6&arch=$basearch'
+        gpgkeys:
+          - https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-$releasever
+
+  el8:
+    platform:   el-8-x86_64
+    box:        centos/8
+    hypervisor: <%= hypervisor %>
+    yum_repos:
+      epel:
+        mirrorlist: 'https://mirrors.fedoraproject.org/metalink?repo=epel-8&arch=$basearch'
         gpgkeys:
           - https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-$releasever
 
