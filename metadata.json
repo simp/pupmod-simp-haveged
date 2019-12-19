@@ -1,6 +1,6 @@
 {
   "name": "simp-haveged",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "author": "SIMP Team",
   "summary": "Install and manage the HAVEGE daemon.",
   "license": "BSD-2-Clause",
@@ -13,37 +13,40 @@
     "entropy",
     "random"
   ],
+  "dependencies": [
+    {
+      "name": "simp/simplib",
+      "version_requirement": ">= 3.2.0 < 5.0.0"
+    },
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 4.13.1 < 7.0.0"
+    }
+  ],
   "operatingsystem_support": [
     {
       "operatingsystem": "RedHat",
       "operatingsystemrelease": [
         "6",
-        "7"
+        "7",
+        "8"
       ]
     },
     {
       "operatingsystem": "CentOS",
       "operatingsystemrelease": [
         "6",
-        "7"
+        "7",
+        "8"
       ]
     },
     {
       "operatingsystem": "OracleLinux",
       "operatingsystemrelease": [
         "6",
-        "7"
+        "7",
+        "8"
       ]
-    }
-  ],
-  "dependencies": [
-    {
-      "name": "simp/simplib",
-      "version_requirement": ">= 3.2.0 < 4.0.0"
-    },
-    {
-      "name": "puppetlabs/stdlib",
-      "version_requirement": ">= 4.13.1 < 7.0.0"
     }
   ],
   "requirements": [
