@@ -2,14 +2,12 @@ require 'spec_helper'
 
 describe 'haveged' do
 
-  on_supported_os.each do |os, facts|
-    let(:facts) { facts }
+  on_supported_os.each do |os, os_facts|
+    let(:facts) { os_facts }
 
     context "on #{os} with default parameters" do
       it {
         is_expected.to contain_class('haveged')
-
-        is_expected.to contain_class('haveged::params')
 
         is_expected.to contain_class('haveged::package')
 
@@ -45,14 +43,14 @@ describe 'haveged' do
       let :params do
         {
           :package_name   => 'foobar',
-          :package_ensure => 'foo'
+          :package_ensure => 'latest'
         }
       end
 
       it {
         is_expected.to contain_class('haveged::package') \
                 .with_package_name('foobar') \
-                .with_package_ensure('foo')
+                .with_package_ensure('latest')
       }
     end
 
@@ -60,7 +58,7 @@ describe 'haveged' do
       let :params do
         {
           :service_name   => 'foobar',
-          :service_enable => 'foo',
+          :service_enable => true,
           :service_ensure => 'bar',
         }
       end
@@ -68,7 +66,7 @@ describe 'haveged' do
       it {
         is_expected.to contain_class('haveged::service') \
                 .with_service_name('foobar') \
-                .with_service_enable('foo') \
+                .with_service_enable(true) \
                 .with_service_ensure('bar')
       }
     end
@@ -93,10 +91,10 @@ describe 'haveged' do
       }
     end
 
-    context "on #{os} with package_ensure => true" do
+    context "on #{os} with package_ensure => present" do
       let :params do
         {
-          :package_ensure => true
+          :package_ensure => 'present'
         }
       end
 
@@ -115,10 +113,10 @@ describe 'haveged' do
       }
     end
 
-    context "on #{os} with package_ensure => false" do
+    context "on #{os} with package_ensure => absent" do
       let :params do
         {
-          :package_ensure => false
+          :package_ensure => 'absent'
         }
       end
 
@@ -165,13 +163,5 @@ describe 'haveged' do
                 .that_comes_before('Class[haveged::package]')
       }
     end
-  end
-
-  context 'on an unsupported operating system' do
-    let :facts do
-      { :osfamily => 'VMS', :operatingsystem => 'VAX/VMS' }
-    end
-
-    it { is_expected.to raise_error Puppet::Error, /Unsupported osfamily 'VMS'/ }
   end
 end

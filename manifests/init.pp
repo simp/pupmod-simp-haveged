@@ -1,40 +1,32 @@
-# = Class: haveged
+# Manage HAVEGEd
 #
-# Manage haveged
+# @param buffer_size
+#   The size of the collection buffer in KB
 #
-# == Parameters:
+# @param data_cache_size
+#   The data cache size in KB
 #
-# [*buffer_size*]
-#   The size of the collection buffer in KB. Default: 128
+# @param instruction_cache_size
+#   The instruction cache size in KB. Default is 16 or as determined by cpuid
 #
-# [*data_cache_size*]
-#   The data cache size in KB. Default is 16 or as determined by cpuid.
-#
-# [*instruction_cache_size*]
-#   The instruction cache size in KB. Default is 16 or as determined by cpuid.
-#
-# [*write_wakeup_threshold*]
+# @param write_wakeup_threshold
 #   The haveged daemon generates more data if the number of entropy bits
-#   falls below this value.
+#   falls below this value
 #
-# [*service_name*]
-#   The name of the service to manage.
+# @param service_name
+#   The name of the service to manage
 #
-# [*service_ensure*]
-#   Whether the service should be running.
+# @param service_ensure
+#   Whether the service should be running
 #
-# [*service_enable*]
-#   Whether the service should be enabled to start at boot time.
+# @param service_enable
+#   Whether the service should be enabled to start at boot time
 #
-# [*package_name*]
-#   The name of the package to manage.
+# @param package_name
+#   The name of the package to manage
 #
-# [*package_ensure*]
+# @param package_ensure
 #   Ensure parameter passed onto Package resources. Default: 'present'
-#
-# == Requires:
-#
-# Puppetlabs stdlib module.
 #
 # == Sample Usage:
 #
@@ -42,18 +34,17 @@
 #     write_wakeup_threshold => 1024,
 #   }
 #
-#
 class haveged (
-  $buffer_size            = undef,
-  $data_cache_size        = undef,
-  $instruction_cache_size = undef,
-  $write_wakeup_threshold = '1024',
-  $service_name           = $::haveged::params::service_name,
-  $service_enable         = true,
-  $service_ensure         = 'running',
-  $package_name           = $::haveged::params::package_name,
-  $package_ensure         = 'present',
-) inherits ::haveged::params {
+  Optional[Variant[String,Integer]]       $buffer_size            = undef,
+  Optional[Variant[String,Integer]]       $data_cache_size        = undef,
+  Optional[Variant[String,Integer]]       $instruction_cache_size = undef,
+  Optional[Variant[String,Integer]]       $write_wakeup_threshold = 1024,
+  String[1]                               $service_name           = 'haveged',
+  Boolean                                 $service_enable         = true,
+  Variant[Boolean,String[1]]              $service_ensure         = 'running',
+  String[1]                               $package_name           = 'haveged',
+  Variant[Boolean,Simplib::PackageEnsure] $package_ensure         = simplib::lookup('simp_options::package_ensure', { 'default_value' => 'installed' })
+) {
 
   simplib::assert_metadata($module_name)
 
@@ -85,15 +76,15 @@ class haveged (
       $_service_enable = $service_enable
     }
 
-    contain '::haveged::package'
-    contain '::haveged::service'
+    contain 'haveged::package'
+    contain 'haveged::service'
 
     if ($_package_ensure == 'purged') {
       # Allow stopping before removal
       Class['haveged::service'] -> Class['haveged::package']
     }
     else {
-      contain '::haveged::config'
+      contain 'haveged::config'
 
       Class['haveged::package'] ~> Class['haveged::service']
       Class['haveged::package'] -> Class['haveged::config']

@@ -1,4 +1,13 @@
-* Thu Dec 17 2020 Chris Tessmer <chris.tessmer@onyxpoint.com> - 0.6.1
+* Wed Feb 03 2021 Trevor Vaughan <tvaughan@onyxpoint.com> - 0.7.0
+- Ensure that haveged does not start by default if rngd is running
+- Add `haveged__rngd_enabled` fact
+- Remove all remaining EL6 code
+- Migrate all capabilities to systemd
+- Update parameter documentation and generate REFERENCE.md
+- Add support for Puppet 7
+- Fix spec tests
+
+* Thu Dec 17 2020 Chris Tessmer <chris.tessmer@onyxpoint.com> - 0.7.0
 - Removed EL6 support
 
 * Mon Dec 16 2019 Trevor Vaughan <tvaughan@onyxpoint.com> - 0.6.0-0
