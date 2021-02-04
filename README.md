@@ -20,34 +20,30 @@
 
 ## Overview
 
-Install and manage the haveged daemon.
+Install and manage the HAVEGE daemon, `haveged`.
 
 ## Module Description
 
-The haveged daemon provides a random number generator based on the HAVEGE
+The HAVEGE daemon provides a random number generator based on the HAVEGE
 (HArdware Volatile Entropy Gathering and Expansion) algorithm. This module
 provides a way of installing and setting up the daemon in your environment.
 
+See [REFERENCE.md](./REFERENCE.md) for API documentation.
 ## Setup
 
 ### What haveged affects
 
-Package, service and configuration files for the haveged daemon.
+Package, service and configuration files for `haveged`.
 
 * On Debian based systems this includes the `/etc/default/haveged` file if an
   `init` based startup system is used. For systems using `systemd` the
   configuration is stored in the
   `/etc/systemd/system/haveged.service.d/opts.conf` file.
 
-* On RHEL 6 systems the configuration is unfortunately hardcoded and no
-  configuration file is used.
-
-* On RHEL 7 systems the configuration is stored in the
+* The configuration is stored in the
   `/etc/systemd/system/haveged.service.d/opts.conf` file.
 
 ### Setup Requirements
-
-This module requires the `stdlib` module.
 
 The `haveged` package is part of the
 [EPEL](https://fedoraproject.org/wiki/EPEL) yum repository, so this repository
@@ -59,7 +55,7 @@ Declare the haveged class to run the haveged daemon with the default
 parameters.
 
 ```puppet
-include '::haveged'
+include 'haveged'
 ```
 
 This installs the haveged package and starts the service using default
@@ -72,10 +68,9 @@ configuration options.
 
 ### Use a higher threshold of available entropy
 
-```puppet
-class { 'haveged':
-  write_wakeup_threshold => '2048',
-}
+```yaml
+---
+haveged::write_wakeup_threshold: 2048
 ```
 
 ## Reference
