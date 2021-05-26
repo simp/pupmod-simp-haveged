@@ -1,3 +1,12 @@
+* Wed May 26 2021 Trevor Vaughan <tvaughan@onyxpoint.com> - 0.7.1
+- Fixed
+  - Mask the service when disabling for rngd compatibility so that it is not
+    restarted on reboot
+
+- Changed
+  - Support puppetlabs/stdlib 7.X
+  - Updated REFERENCE.md
+
 * Wed Feb 03 2021 Trevor Vaughan <tvaughan@onyxpoint.com> - 0.7.0
 - Ensure that haveged does not start by default if rngd is running
 - Add `haveged__rngd_enabled` fact

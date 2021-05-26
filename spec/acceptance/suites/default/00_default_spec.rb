@@ -22,8 +22,15 @@ describe 'haveged' do
         end
       end
 
-      it 'should be stopped if rngd is running' do
+      it 'should be stopped if rngd is running and remain stopped after reboot' do
         unless on(host, 'pgrep rngd 2>/dev/null', :accept_all_exit_codes => true).stdout.strip.empty?
+          on(host, 'puppet resource service haveged') do
+            expect(stdout).to match(/ensure\s*=> 'stopped'/)
+            expect(stdout).to match(/enable\s*=> 'false'/)
+          end
+
+          host.reboot
+
           on(host, 'puppet resource service haveged') do
             expect(stdout).to match(/ensure\s*=> 'stopped'/)
             expect(stdout).to match(/enable\s*=> 'false'/)

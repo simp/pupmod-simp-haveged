@@ -23,7 +23,7 @@ describe 'haveged::service' do
         it {
           is_expected.to contain_service('haveged')
             .with_ensure('stopped')
-            .with_enable(false)
+            .with_enable('mask')
         }
 
         context 'with haveged forced' do

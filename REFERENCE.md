@@ -9,6 +9,7 @@
 * [`haveged`](#haveged): Manage HAVEGEd  == Sample Usage:    class { 'haveged':     write_wakeup_threshold => 1024,   }
 * [`haveged::config`](#havegedconfig): Manage the HAVEGEd configuration file
 * [`haveged::package`](#havegedpackage): Manage the haveged package
+* [`haveged::service`](#havegedservice): Manage the HAVEGEd service
 
 ## Classes
 
@@ -79,7 +80,7 @@ Default value: `'haveged'`
 
 ##### <a name="service_ensure"></a>`service_ensure`
 
-Data type: `String[1]`
+Data type: `Variant[Boolean,String[1]]`
 
 Whether the service should be running
 
@@ -103,7 +104,7 @@ Default value: `'haveged'`
 
 ##### <a name="package_ensure"></a>`package_ensure`
 
-Data type: `Simplib::PackageEnsure`
+Data type: `Variant[Boolean,Simplib::PackageEnsure]`
 
 Ensure parameter passed onto Package resources. Default: 'present'
 
@@ -181,4 +182,52 @@ Data type: `Simplib::PackageEnsure`
 Ensure parameter passed onto Package resources
 
 Default value: `defined('$haveged::_package_ensure')`
+
+### <a name="havegedservice"></a>`haveged::service`
+
+Manage the HAVEGEd service
+
+#### Parameters
+
+The following parameters are available in the `haveged::service` class:
+
+* [`service_name`](#service_name)
+* [`service_ensure`](#service_ensure)
+* [`service_enable`](#service_enable)
+* [`force_if_rngd_running`](#force_if_rngd_running)
+
+##### <a name="service_name"></a>`service_name`
+
+Data type: `String[1]`
+
+The name of the service to manage
+
+Default value: `defined('$haveged::service_name')`
+
+##### <a name="service_ensure"></a>`service_ensure`
+
+Data type: `String[1]`
+
+Whether the service should be running
+
+Default value: `defined('$haveged::_service_ensure')`
+
+##### <a name="service_enable"></a>`service_enable`
+
+Data type: `Boolean`
+
+Whether the service should be enabled to start at boot time
+
+Default value: `defined('$haveged::_service_enable')`
+
+##### <a name="force_if_rngd_running"></a>`force_if_rngd_running`
+
+Data type: `Boolean`
+
+Will force haveged to start even though RNGD is already running
+
+* While this should not harm your system in most cases, it is also adding
+  an unnecessary process running on the system
+
+Default value: ``false``
 
