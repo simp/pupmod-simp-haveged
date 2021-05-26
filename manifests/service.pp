@@ -24,7 +24,7 @@ class haveged::service (
   if $facts['haveged__rngd_enabled'] and !$force_if_rngd_running {
     service {$service_name:
       ensure => 'stopped',
-      enable => false
+      enable => 'mask'
     }
   }
   else {
