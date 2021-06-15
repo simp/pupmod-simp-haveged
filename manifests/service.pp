@@ -20,7 +20,6 @@ class haveged::service (
   Boolean $service_enable = defined('$haveged::_service_enable') ? { true => getvar('haveged::_service_enable'), default => true },
   Boolean $force_if_rngd_running = false
 ) {
-
   if $facts['haveged__rngd_enabled'] and !$force_if_rngd_running {
     service {$service_name:
       ensure => 'stopped',
