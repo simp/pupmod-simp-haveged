@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'haveged::package' do
   on_supported_os.each do |os, os_facts|
-    context "on #{os} with default parameters" do
+    context "on #{os}" do
       let :facts  do
         os_facts
       end
