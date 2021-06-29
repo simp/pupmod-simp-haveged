@@ -1,8 +1,8 @@
 ---
 fixtures:
   repositories:
-    stdlib: https://github.com/simp/puppetlabs-stdlib
-    simplib: https://github.com/simp/pupmod-simp-simplib
-    systemd: https://github.com/simp/puppet-systemd
+    stdlib: https://github.com/simp/puppetlabs-stdlib.git
+    simplib: https://github.com/simp/pupmod-simp-simplib.git
+    systemd: https://github.com/simp/puppet-systemd.git
   symlinks:
     haveged: "#{source_dir}"
