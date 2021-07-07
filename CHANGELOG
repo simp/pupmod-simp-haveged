@@ -9,7 +9,6 @@
 - Fixed
   - Mask the service when disabling for rngd compatibility so that it is not
     restarted on reboot
-
 - Changed
   - Support puppetlabs/stdlib 7.X
   - Updated REFERENCE.md
