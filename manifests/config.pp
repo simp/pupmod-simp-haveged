@@ -50,6 +50,5 @@ class haveged::config (
   systemd::dropin_file { 'haveged_settings.conf':
     unit          => 'haveged.service',
     content       => $_systemd_conf,
-    daemon_reload => 'eager'
   }
 }
