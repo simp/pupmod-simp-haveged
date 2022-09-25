@@ -1,13 +1,16 @@
-require "spec_helper"
+# frozen_string_literal: true
+
+require 'spec_helper'
 
 describe 'Facter::Util::Fact' do
   pgrep_path = '/usr/bin/pgrep'
 
-  before do
+  before(:each) do
     Facter.clear
     Facter::Util::Resolution.stubs(:which).with('pgrep').returns(pgrep_path)
   end
-  after do
+
+  after(:each) do
     Facter.clear
   end
 

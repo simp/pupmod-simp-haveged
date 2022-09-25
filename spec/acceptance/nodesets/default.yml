@@ -16,13 +16,14 @@ HOSTS:
 
   el8:
     platform:   el-8-x86_64
-    box:        generic/centos8
+    box:        centos/stream8
     hypervisor: <%= hypervisor %>
 
 CONFIG:
   log_level: verbose
   type:      aio
-  vagrant_memsize: 256
+  vagrant_cpus: 2
+  multi_node: false
 <% if ENV['BEAKER_PUPPET_COLLECTION'] -%>
   puppet_collection: <%= ENV['BEAKER_PUPPET_COLLECTION'] %>
 <% end -%>

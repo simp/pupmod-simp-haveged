@@ -1,3 +1,10 @@
+* Sun Sep 25 2022 Trevor Vaughan <trevor@sicura.us> - 0.10.0
+- Added:
+  - The module now supports Amazon Linux 2
+- Changed:
+  - Added a `.rubocop.yml`
+  - Rubocop'd the Ruby
+
 * Mon Jun 06 2022 Chris Tessmer <chris.tessmer@onyxpoint.com> - 0.9.1
 - Fixed:
   - Remove deprecated `daemon_reload` parameter from `systemd::dropin_file`
