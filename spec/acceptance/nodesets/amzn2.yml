@@ -8,7 +8,7 @@
 
 HOSTS:
   amzn2:
-    platform:   el-8-x86_64
+    platform:   el-7-x86_64
     box:        gbailey/amzn2
     hypervisor: <%= hypervisor %>
 
