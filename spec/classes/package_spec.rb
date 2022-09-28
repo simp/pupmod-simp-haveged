@@ -1,15 +1,17 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe 'haveged::package' do
   on_supported_os.each do |os, os_facts|
     context "on #{os}" do
-      let :facts  do
+      let :facts do
         os_facts
       end
 
       context 'with default parameters' do
         it {
-          is_expected.to contain_package('haveged')
+          expect(subject).to contain_package('haveged')
             .with_ensure('present')
             .with_name('haveged')
         }
@@ -21,7 +23,7 @@ describe 'haveged::package' do
         end
 
         it do
-          is_expected.to contain_package(params[:package_name]).with_ensure(params[:package_ensure])
+          expect(subject).to contain_package(params[:package_name]).with_ensure(params[:package_ensure])
         end
       end
     end

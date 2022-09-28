@@ -7,16 +7,9 @@
 -%>
 
 HOSTS:
-  el7:
-    roles:
-      - default
+  amzn2:
     platform:   el-7-x86_64
-    box:        centos/7
-    hypervisor: <%= hypervisor %>
-
-  el8:
-    platform:   el-8-x86_64
-    box:        centos/stream8
+    box:        gbailey/amzn2
     hypervisor: <%= hypervisor %>
 
 CONFIG:
