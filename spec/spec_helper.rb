@@ -152,7 +152,7 @@ end
 Dir.glob("#{RSpec.configuration.module_path}/*").each do |dir|
   begin
     Pathname.new(dir).realpath
-  rescue StandardError
-    raise "ERROR: The module '#{dir}' is not installed. Tests cannot continue."
+  rescue StandardError => e
+    raise "ERROR: The module '#{dir}' is not installed (#{e.message}). Tests cannot continue."
   end
 end
