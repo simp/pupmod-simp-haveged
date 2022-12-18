@@ -1,3 +1,7 @@
+* Sun Dec 18 2022 Trevor Vaughan <trevor@sicura.us> - 0.11.0
+- Added:
+  - The module now supports Alma Linux 8 and Rocky Linux 8
+
 * Sun Sep 25 2022 Trevor Vaughan <trevor@sicura.us> - 0.10.0
 - Added:
   - The module now supports Amazon Linux 2

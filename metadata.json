@@ -1,6 +1,6 @@
 {
   "name": "simp-haveged",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "author": "SIMP Team",
   "summary": "Install and manage the HAVEGE daemon.",
   "license": "BSD-2-Clause",
@@ -52,6 +52,18 @@
       "operatingsystem": "OracleLinux",
       "operatingsystemrelease": [
         "7",
+        "8"
+      ]
+    },
+    {
+      "operatingsystem": "AlmaLinux",
+      "operatingsystemrelease": [
+        "8"
+      ]
+    },
+    {
+      "operatingsystem": "Rocky",
+      "operatingsystemrelease": [
         "8"
       ]
     }
