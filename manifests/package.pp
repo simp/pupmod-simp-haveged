@@ -12,7 +12,7 @@ class haveged::package (
 ) {
   # Working around a bug in the package type
   # https://tickets.puppetlabs.com/browse/PUP-1295
-  if ($facts['osfamily'] == 'RedHat') and ($package_ensure == 'purged') {
+  if ($facts['os']['family'] == 'RedHat') and ($package_ensure == 'purged') {
     $_package_ensure = 'absent'
   }
   else {
