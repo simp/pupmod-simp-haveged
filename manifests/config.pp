@@ -48,7 +48,7 @@ class haveged::config (
     | END
 
   systemd::dropin_file { 'haveged_settings.conf':
-    unit          => 'haveged.service',
-    content       => $_systemd_conf,
+    unit    => 'haveged.service',
+    content => $_systemd_conf,
   }
 }

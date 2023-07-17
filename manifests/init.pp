@@ -38,7 +38,7 @@ class haveged (
   Optional[Variant[String,Integer]]       $buffer_size            = undef,
   Optional[Variant[String,Integer]]       $data_cache_size        = undef,
   Optional[Variant[String,Integer]]       $instruction_cache_size = undef,
-  Optional[Variant[String,Integer]]       $write_wakeup_threshold = 1024,
+  Variant[String,Integer]                 $write_wakeup_threshold = 1024,
   String[1]                               $service_name           = 'haveged',
   Boolean                                 $service_enable         = true,
   Variant[Boolean,String[1]]              $service_ensure         = 'running',
