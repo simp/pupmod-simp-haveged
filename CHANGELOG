@@ -1,3 +1,6 @@
+* Wed Jul 08 2026 Steven Pritchard <steve@sicura.us> - 0.15.1
+- Dropped support for Puppet 7
+
 * Fri Sep 13 2024 Steven Pritchard <steve@sicura.us> - 0.15.0
 - [puppetsync] Update module dependencies to support simp-iptables 7.x
 
