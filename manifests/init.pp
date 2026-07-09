@@ -45,7 +45,6 @@ class haveged (
   String[1]                               $package_name           = 'haveged',
   Variant[Boolean,Simplib::PackageEnsure] $package_ensure         = simplib::lookup('simp_options::package_ensure', { 'default_value' => 'installed' })
 ) {
-
   simplib::assert_metadata($module_name)
 
   if simplib::lookup('simp_options::haveged', { 'default_value' => true }) {
