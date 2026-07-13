@@ -1,6 +1,6 @@
 {
   "name": "simp-haveged",
-  "version": "0.15.0",
+  "version": "0.15.2",
   "author": "SIMP Team",
   "summary": "Install and manage the HAVEGE daemon.",
   "license": "BSD-2-Clause",
@@ -76,7 +76,7 @@
   "requirements": [
     {
       "name": "puppet",
-      "version_requirement": ">= 7.0.0 < 9.0.0"
+      "version_requirement": ">= 8.0.0 < 9.0.0"
     }
   ]
 }
