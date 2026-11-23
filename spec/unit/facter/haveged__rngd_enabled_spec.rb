@@ -7,7 +7,7 @@ describe 'Facter::Util::Fact' do
 
   before(:each) do
     Facter.clear
-    allow(Facter::Util::Resolution).to receive(:which).with('pgrep').and_return(pgrep_path)
+    allow(Facter::Core::Execution).to receive(:which).with('pgrep').and_return(pgrep_path)
   end
 
   after(:each) do

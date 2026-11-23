@@ -1,3 +1,7 @@
+* Mon Nov 23 2026 Hazel Caballero <hazel@sicura.us> - 0.15.1
+- Fixed an OpenVox 9 (OpenFact 6) deprecation warning from the
+  `haveged__rngd_enabled` fact by using `Facter::Core::Execution.which`
+
 * Fri Sep 13 2024 Steven Pritchard <steve@sicura.us> - 0.15.0
 - [puppetsync] Update module dependencies to support simp-iptables 7.x
 
